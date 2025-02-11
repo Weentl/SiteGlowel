@@ -54,7 +54,7 @@ function App() {
         'Diseño responsivo',
         'Optimización SEO',
       ],
-      url: 'https://maderassanpedro.netlify.app/',
+      url: 'https://maderassanpedro.com/',
     },
   ];
 
