@@ -267,33 +267,16 @@ function App() {
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center">
-                    <Phone className="w-6 h-6 text-blue-600 mr-3" />
-                    <span>+1 234 567 890</span>
-                  </div>
-                  <div className="flex items-center">
                     <Mail className="w-6 h-6 text-blue-600 mr-3" />
-                    <span>contacto@glowel.com</span>
+                    <span>glowel.dev@gmail.com</span>
                   </div>
                   <div className="flex items-center">
                     <MapPin className="w-6 h-6 text-blue-600 mr-3" />
-                    <span>Ciudad, País</span>
+                    <span>Puebla, Mex</span>
                   </div>
                 </div>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Síguenos</h3>
-                <div className="flex space-x-4">
-                  <a href="#" className="text-gray-600 hover:text-blue-600">
-                    <Twitter className="w-6 h-6" />
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-blue-600">
-                    <Linkedin className="w-6 h-6" />
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-blue-600">
-                    <Github className="w-6 h-6" />
-                  </a>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
