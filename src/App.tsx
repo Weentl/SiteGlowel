@@ -307,7 +307,7 @@ const Process = () => {
 // Componente Portafolio
 const portfolio = [
   {
-    image: MaderasSanPedroPreview,
+    PreviewComponent: MaderasSanPedroPreview, // Componente de vista previa en lugar de una imagen
     title: 'Maderas San Pedro',
     description: 'Nuestro primer proyecto: un sitio corporativo con catálogo interactivo y diseño responsivo. ¡Confía en nosotros para que tu proyecto sea el próximo en nuestro portafolio!',
     url: 'https://maderassanpedro.com/',
@@ -343,11 +343,9 @@ const Portfolio = () => (
             whileHover={{ scale: 1.05, rotate: 1, boxShadow: '0 15px 30px rgba(30, 136, 229, 0.3)' }}
             className="bg-white p-8 rounded-xl shadow-2xl border border-[#4A90E2] relative overflow-hidden w-full max-w-3xl"
           >
-            <img 
-              src={project.image} 
-              alt={project.title} 
-              className="w-full h-48 object-cover rounded-md mb-6 relative z-10" 
-            />
+            <div className="w-full h-64 sm:h-96 mb-6 relative">
+              <project.PreviewComponent />
+            </div>
             <h3 className="text-2xl font-semibold text-[#2C3E50] mb-3 font-['Outfit']">{project.title}</h3>
             <p className="text-[#7F8C8D] mb-4 font-['Nunito']">{project.description}</p>
             <div className="mb-4">
