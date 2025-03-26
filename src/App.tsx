@@ -207,7 +207,7 @@ const About = () => (
         >
           <div className="bg-white p-4 rounded-lg shadow-md">
             <img
-              src="/public/Glowel.png"
+              src="/Glowel.png"
               alt="Logo de Glowel"
               className="w-full max-w-[350px] h-auto transition-transform duration-500 hover:scale-105"
             />
