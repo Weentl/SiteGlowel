@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { supabase } from '../lib/supabase';
+
 
 interface FormData {
   name: string;
@@ -29,7 +29,9 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus({ type: null, message: '' });
+  
     try {
+      // Enviar el correo
       const response = await fetch('https://glowel.onrender.com/send-email', {
         method: 'POST',
         headers: {
@@ -37,50 +39,24 @@ const ContactForm = () => {
         },
         body: JSON.stringify(formData),
       });
-
+  
       const result = await response.json();
-
-      if (response.ok) {
-        setStatus({
-          type: 'success',
-          message:
-            '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.',
-        });
-
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          message: '',
-        });
-      } else {
-        throw new Error(result.message || 'Hubo un error al enviar el mensaje');
+      console.log('Response status:', response.status);
+      console.log('Response JSON:', result);
+  
+      // Si la respuesta no es "ok", pero el resultado indica éxito, forzar el estado de éxito
+      if (!response.ok && !result.success) {
+        throw new Error(result.message || 'Error al enviar el correo');
       }
-    } catch (error) {
-      console.error('Error:', error);
-      setStatus({
-        type: 'error',
-        message:
-          'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-
-    try {
-      const { error } = await supabase.from('contacts').insert([formData]);
-
-      if (error) throw error;
-
+  
+      // Mensaje de éxito
       setStatus({
         type: 'success',
         message:
           '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.',
       });
-
-      // Reset form
+  
+      // Resetear el formulario
       setFormData({
         name: '',
         email: '',
@@ -92,8 +68,7 @@ const ContactForm = () => {
       console.error('Error:', error);
       setStatus({
         type: 'error',
-        message:
-          'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.',
+        message: 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.',
       });
     } finally {
       setIsSubmitting(false);
