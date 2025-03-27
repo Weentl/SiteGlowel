@@ -27,7 +27,7 @@ const Nav = () => {
             Glowel
           </motion.div>
           <div className="hidden md:flex space-x-10">
-            {['Inicio', 'Servicios', 'Nosotros', 'Proceso', 'Casos de Éxito', 'Compromiso', 'Contacto'].map((item) => (
+            {['Inicio', 'Servicios', 'Nosotros', 'Proceso', 'Compromiso', 'Contacto'].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '')}`}
