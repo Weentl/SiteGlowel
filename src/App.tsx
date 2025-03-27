@@ -52,7 +52,7 @@ const Nav = () => {
           className="md:hidden bg-[#E8F0F2]"
         >
           <div className="px-6 pt-4 pb-6 space-y-4">
-            {['Inicio', 'Servicios', 'Nosotros', 'Proceso', 'Casos de Éxito', 'Compromiso', 'Contacto'].map((item) => (
+            {['Inicio', 'Servicios', 'Nosotros', 'Proceso', 'Compromiso', 'Contacto'].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '')}`}
