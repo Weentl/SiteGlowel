@@ -476,7 +476,7 @@ const Footer = () => (
       <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
         <div className="text-2xl font-bold font-['Outfit']">Glowel</div>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
-          {['Inicio', 'Servicios', 'Nosotros', 'Proceso', 'Casos de Éxito', 'Compromiso', 'Contacto'].map((item) => (
+          {['Inicio', 'Servicios', 'Nosotros', 'Proceso', 'Compromiso', 'Contacto'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase().replace(' ', '')}`} 
