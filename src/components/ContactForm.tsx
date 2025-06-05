@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 interface FormData {
   name: string;
   email: string;
@@ -9,7 +8,29 @@ interface FormData {
   message: string;
 }
 
-const ContactForm = () => {
+interface ContactFormProps {
+  labels?: {
+    name?: string;
+    email?: string;
+    phone?: string;
+    company?: string;
+    message?: string;
+  };
+  placeholders?: {
+    name?: string;
+    email?: string;
+    phone?: string;
+    company?: string;
+    message?: string;
+  };
+  submitText?: string;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({
+  labels = {},
+  placeholders = {},
+  submitText = 'Enviar Mensaje',
+}) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -29,9 +50,7 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus({ type: null, message: '' });
-  
     try {
-      // Enviar el correo
       const response = await fetch('https://glowel.onrender.com/send-email', {
         method: 'POST',
         headers: {
@@ -39,24 +58,15 @@ const ContactForm = () => {
         },
         body: JSON.stringify(formData),
       });
-  
       const result = await response.json();
-      console.log('Response status:', response.status);
-      console.log('Response JSON:', result);
-  
-      // Si la respuesta no es "ok", pero el resultado indica éxito, forzar el estado de éxito
       if (!response.ok && !result.success) {
         throw new Error(result.message || 'Error al enviar el correo');
       }
-  
-      // Mensaje de éxito
       setStatus({
         type: 'success',
         message:
           '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.',
       });
-  
-      // Resetear el formulario
       setFormData({
         name: '',
         email: '',
@@ -65,7 +75,6 @@ const ContactForm = () => {
         message: '',
       });
     } catch (error) {
-      console.error('Error:', error);
       setStatus({
         type: 'error',
         message: 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.',
@@ -103,7 +112,7 @@ const ContactForm = () => {
           htmlFor="name"
           className="block text-sm font-medium text-gray-700"
         >
-          Nombre *
+          {labels.name || 'Nombre'} *
         </label>
         <input
           type="text"
@@ -112,7 +121,9 @@ const ContactForm = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          placeholder={placeholders.name || ''}
+          className="mt-1 block w-full px-4 py-2 text-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 
+          placeholder:text-gray-400 placeholder:text-sm placeholder:font-light"
         />
       </div>
 
@@ -121,7 +132,7 @@ const ContactForm = () => {
           htmlFor="email"
           className="block text-sm font-medium text-gray-700"
         >
-          Correo Electrónico *
+          {labels.email || 'Correo Electrónico'} *
         </label>
         <input
           type="email"
@@ -130,7 +141,9 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          placeholder={placeholders.email || ''}
+          className="mt-1 block w-full px-4 py-2 text-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 
+          placeholder:text-gray-400 placeholder:text-sm placeholder:font-light"
         />
       </div>
 
@@ -139,7 +152,7 @@ const ContactForm = () => {
           htmlFor="company"
           className="block text-sm font-medium text-gray-700"
         >
-          Empresa (Opcional)
+          {labels.company || 'Empresa'} (Opcional)
         </label>
         <input
           type="text"
@@ -147,7 +160,9 @@ const ContactForm = () => {
           name="company"
           value={formData.company}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          placeholder={placeholders.company || ''}
+          className="mt-1 block w-full px-4 py-2 text-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 
+          placeholder:text-gray-400 placeholder:text-sm placeholder:font-light"
         />
       </div>
 
@@ -156,7 +171,7 @@ const ContactForm = () => {
           htmlFor="phone"
           className="block text-sm font-medium text-gray-700"
         >
-          Teléfono (Opcional)
+          {labels.phone || 'Teléfono'} (Opcional)
         </label>
         <input
           type="tel"
@@ -164,7 +179,9 @@ const ContactForm = () => {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          placeholder={placeholders.phone || ''}
+          className="mt-1 block w-full px-4 py-2 text-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 
+          placeholder:text-gray-400 placeholder:text-sm placeholder:font-light"
         />
       </div>
 
@@ -173,7 +190,7 @@ const ContactForm = () => {
           htmlFor="message"
           className="block text-sm font-medium text-gray-700"
         >
-          Mensaje *
+          {labels.message || 'Mensaje'} *
         </label>
         <textarea
           id="message"
@@ -182,7 +199,9 @@ const ContactForm = () => {
           onChange={handleChange}
           rows={4}
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          placeholder={placeholders.message || ''}
+          className="mt-1 block w-full px-4 py-2 text-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 
+          placeholder:text-gray-400 placeholder:text-sm placeholder:font-light"
         />
       </div>
 
@@ -195,7 +214,7 @@ const ContactForm = () => {
           } 
           transition-colors`}
       >
-        {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+        {isSubmitting ? 'Enviando...' : submitText}
       </button>
     </form>
   );
