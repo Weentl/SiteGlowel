@@ -5,10 +5,7 @@ import { Menu, X, MessageCircle } from 'lucide-react';
 import ContactForm from '../src/components/ContactForm';
 import MaderasSanPedroPreview from '../src/components/MaderasSanpedro.tsx'
 
-const fontStyles = `
-  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
-`;
+// ... (keep all existing imports and components until Services component)
 
 const Services = () => {
   const [expandedService, setExpandedService] = useState(null);
@@ -55,6 +52,8 @@ const Services = () => {
     </section>
   );
 };
+
+// ... (keep all existing components until Process component)
 
 const Process = () => {
   const [expandedStep, setExpandedStep] = useState(null);
@@ -112,6 +111,9 @@ const Process = () => {
   );
 };
 
+// ... (keep all existing components)
+
+// Add new FloatingButtons component
 const FloatingButtons = () => (
   <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
     <motion.a
@@ -137,6 +139,7 @@ const FloatingButtons = () => (
   </div>
 );
 
+// Update App component to include FloatingButtons
 function App() {
   return (
     <div className="min-h-screen bg-[#F7FAFC] overflow-x-hidden">
