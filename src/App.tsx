@@ -479,7 +479,7 @@ const Contact = () => (
           </div>
           <div className="flex items-center space-x-4">
             <FaMapPin className="text-2xl text-[#1E88E5]" />
-            <span className="text-lg text-[#7F8C8D] font-['Nunito']">Puebla, México</span>
+            <span className="text-lg text-[#7F8C8D] font-['Nunito']">Orizaba, Ver</span>
           </div>
           <div className="flex items-center space-x-4">
             <FaWhatsapp className="text-2xl text-[#1E88E5]" />
@@ -550,7 +550,7 @@ function App() {
           <FaWhatsapp className="text-3xl" />
         </a>
         <a
-          href="https://m.me/100094695337249"
+          href="https://m.me/537574656111827"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-[#0084FF] hover:bg-[#006fd6] text-white rounded-full shadow-lg p-4 flex items-center justify-center transition-all duration-300"
