@@ -489,7 +489,7 @@ const Contact = () => (
               rel="noopener noreferrer"
               className="text-lg text-[#7F8C8D] hover:text-[#1E88E5] font-['Nunito']"
             >
-              +272 117 6573
+              +221 258 3010
             </a>
           </div>
         </motion.div>
@@ -541,7 +541,7 @@ function App() {
       {/* Botones flotantes de WhatsApp y Messenger */}
       <div className="fixed bottom-6 right-6 flex flex-col items-end space-y-3 z-50">
         <a
-          href="https://wa.me/2721176573?text=¡Hola!%20Me%20gustaría%20cotizar%20un%20proyecto."
+          href="https://wa.me/2212583010?text=¡Hola!%20Me%20gustaría%20cotizar%20un%20proyecto."
           target="_blank"
           rel="noopener noreferrer"
           className="bg-[#25D366] hover:bg-[#1ebe57] text-white rounded-full shadow-lg p-4 flex items-center justify-center transition-all duration-300"
