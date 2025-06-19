@@ -1,5 +1,5 @@
-import React from 'react';
-import { ShoppingBag, Globe, Rocket, LayoutGrid, Clock, Palette, PiggyBank, Sparkles, ChevronRight, Monitor, Smartphone, Tablet, Zap } from 'lucide-react';
+
+import { ShoppingBag, Globe, Rocket, LayoutGrid, Palette, PiggyBank, Sparkles, ChevronRight, Monitor, Smartphone, Tablet, Zap } from 'lucide-react';
 
 const mainServices = [
   {

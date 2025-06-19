@@ -1,6 +1,6 @@
-import React from 'react';
+
 import { BsWhatsapp, BsMessenger } from 'react-icons/bs';
-import { MessageCircle, PhoneCall } from 'lucide-react';
+
 
 export function FloatingButtons() {
   const whatsappNumber = '522713145187';

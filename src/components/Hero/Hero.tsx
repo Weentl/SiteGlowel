@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronRight, Sparkles, Calendar } from 'lucide-react';
+import  { useState, useEffect } from 'react';
+import { ChevronRight, Calendar } from 'lucide-react';
 import { Navbar } from '../Navbar/Navbar';
 
 export function Hero() {

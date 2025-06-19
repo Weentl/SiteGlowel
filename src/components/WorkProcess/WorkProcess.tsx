@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { 
   Headphones, 
   FileText,
@@ -89,7 +89,7 @@ const getPaymentColorClasses = (color: string) => {
       gradient: "from-purple-500 to-purple-600"
     }
   };
-  return colors[color] || colors.blue;
+  return colors[color as keyof typeof colors] || colors.blue;
 };
 
 export function WorkProcess() {
