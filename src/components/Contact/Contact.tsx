@@ -182,7 +182,7 @@ export function Contact() {
 
             {/* Messenger */}
             <a
-              href="https://m.me/tuPaginaDeFacebook" // Reemplazar con tu URL de Messenger
+              href="https://m.me/537574656111827" // Reemplazar con tu URL de Messenger
               target="_blank"
               rel="noopener noreferrer"
               className="block p-6 bg-blue-500 text-white rounded-2xl hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 transform hover:-translate-y-1"
