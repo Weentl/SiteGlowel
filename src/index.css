@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Nuevas variables de color personalizadas */
+:root {
+  --color-primary: #8B7355;    /* Tono tierra cálido principal */
+  --color-primary-light: #A69076;
+  --color-primary-dark: #6B563D;
+  --color-accent: #D4C4B7;     /* Acento suave */
+  --color-accent-light: #E8DFD8;
+  --color-warm-gray: #F5F1EE;
+}
